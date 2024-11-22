@@ -3,17 +3,15 @@ import pandas as pd
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 import os
-
-st.write ('Welcome')
+from  psycopg2 import sql
 
 # Database connection parameters 
 load_dotenv()
 
-
 # Function to get the connection to the database
 def get_db_connection():
-    DATABASE_URL = os.getenv('DATABASE_URL')
-    # DATABASE_URL = st.secrets["DATABASE_URL"]
+    #DATABASE_URL = os.getenv('DATABASE_URL')
+    DATABASE_URL = st.secrets["DATABASE_URL"]
     engine = create_engine(DATABASE_URL)
     return engine
 
